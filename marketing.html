@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#070a12" />
+  <title>Marketing — Joker’s Crystal Rush</title>
+  <meta name="description" content="Marketing page for Joker’s Crystal Rush. Transparent development notes and future monetization plans." />
+
+  <style>
+    :root{
+      --bg:#070a12;
+      --card: rgba(255,255,255,.07);
+      --card2: rgba(255,255,255,.05);
+      --text: rgba(255,255,255,.90);
+      --muted: rgba(255,255,255,.66);
+      --border: rgba(255,255,255,.12);
+      --g1:#8b5cff;
+      --g2:#00d4ff;
+      --g3:#ff3d9a;
+      --shadow: 0 18px 55px rgba(0,0,0,.55);
+      --r: 18px;
+      --max: 980px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:var(--sans);
+      color:var(--text);
+      background:
+        radial-gradient(1200px 750px at 10% 10%, rgba(139,92,255,.18), transparent 55%),
+        radial-gradient(1000px 700px at 90% 15%, rgba(0,212,255,.16), transparent 55%),
+        radial-gradient(1000px 750px at 60% 95%, rgba(255,61,154,.12), transparent 55%),
+        linear-gradient(180deg, #060712, #070a12);
+      overflow-x:hidden;
+    }
+    header{
+      position:sticky; top:0; z-index:10;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      background: linear-gradient(180deg, rgba(7,10,18,.88), rgba(7,10,18,.44));
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .bar{
+      max-width: var(--max);
+      margin:0 auto;
+      padding: 12px 16px;
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      text-decoration:none; color:var(--text);
+    }
+    .logo{
+      width:34px; height:34px; border-radius:12px;
+      background:
+        radial-gradient(circle at 30% 25%, rgba(255,255,255,.7), transparent 45%),
+        conic-gradient(from 210deg, var(--g2), var(--g1), var(--g3), var(--g2));
+      box-shadow: 0 0 0 1px rgba(255,255,255,.14), 0 15px 35px rgba(0,0,0,.45);
+    }
+    .brand strong{font-size:13px}
+    .brand small{display:block; color:var(--muted); font-family:var(--mono); font-size:11px; margin-top:2px}
+    nav{display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end}
+    a.link{
+      text-decoration:none; color:var(--text);
+      font-size:13px;
+      padding:9px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.10);
+    }
+    a.link:hover{border-color: rgba(255,255,255,.18); background: rgba(255,255,255,.08)}
+
+    main{max-width: var(--max); margin:0 auto; padding: 18px 16px 50px}
+    .card{
+      background: linear-gradient(180deg, var(--card), var(--card2));
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: var(--r);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .inner{padding: 18px}
+    h1{margin:0 0 10px; font-size: 22px; letter-spacing:.2px}
+    p{margin: 10px 0; color: var(--muted); line-height:1.7; font-size:14px}
+
+    .row{
+      display:grid; gap:12px;
+      grid-template-columns: 1fr 1fr;
+      margin-top: 14px;
+    }
+    @media (max-width: 820px){ .row{grid-template-columns:1fr} }
+
+    .box{
+      border-radius: 16px;
+      padding: 14px;
+      background: rgba(0,0,0,.22);
+      border: 1px solid rgba(255,255,255,.10);
+    }
+    .box h2{margin:0 0 8px; font-size:14px}
+    ul{margin:8px 0 0; padding-left: 18px; color: rgba(255,255,255,.68); font-size: 13px; line-height:1.6}
+    .tagRow{display:flex; flex-wrap:wrap; gap:10px; margin-top: 10px}
+    .tag{
+      font-family: var(--mono);
+      font-size: 12px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.10);
+      color: rgba(255,255,255,.75);
+    }
+    .actions{display:flex; flex-wrap:wrap; gap:10px; margin-top: 12px;}
+    a.btn{
+      border-radius: 16px;
+      padding: 12px 12px;
+      color: rgba(255,255,255,.92);
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: .15px;
+      background: linear-gradient(135deg, rgba(0,212,255,.18), rgba(139,92,255,.18));
+      border: 1px solid rgba(255,255,255,.14);
+      display:inline-flex; align-items:center; gap:10px;
+      text-decoration:none;
+    }
+    a.btn.secondary{background: rgba(255,255,255,.06)}
+    a.btn:hover{filter:brightness(1.06)}
+    .monoLine{
+      margin-top: 14px;
+      font-family: var(--mono);
+      font-size: 12px;
+      color: rgba(255,255,255,.72);
+      background: rgba(0,0,0,.24);
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 16px;
+      padding: 12px;
+      word-break: break-word;
+    }
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="bar">
+    <a class="brand" href="index.html">
+      <span class="logo" aria-hidden="true"></span>
+      <span>
+        <strong>Marketing</strong>
+        <small>Joker’s Crystal Rush · Mykhailo Lubianov</small>
+      </span>
+    </a>
+    <nav>
+      <a class="link" href="index.html">Home</a>
+      <a class="link" href="privacy.html">Privacy</a>
+      <a class="link" href="support.html">Support</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="card">
+    <div class="inner">
+      <h1>Marketing and development statement</h1>
+      <p>
+        I am a beginner independent developer working hard on Joker’s Crystal Rush.
+        This page is written to be transparent with users and App Review about the current state of the app and future plans.
+      </p>
+
+      <div class="row">
+        <div class="box">
+          <h2>What I focus on</h2>
+          <ul>
+            <li>Delivering a clean and enjoyable experience without ads or tracking.</li>
+            <li>Improving stability, performance, and gameplay feel over time.</li>
+            <li>Listening to feedback and turning it into updates.</li>
+          </ul>
+          <div class="tagRow">
+            <span class="tag">indie developer</span>
+            <span class="tag">player feedback</span>
+            <span class="tag">quality improvements</span>
+          </div>
+        </div>
+
+        <div class="box">
+          <h2>Monetization (now and later)</h2>
+          <ul>
+            <li>Current version: no paid features and no subscriptions.</li>
+            <li>Future: I plan to add optional paid content to support development and generate income.</li>
+            <li>Any monetization will be clearly described and always optional.</li>
+          </ul>
+          <div class="tagRow">
+            <span class="tag">no subscriptions (now)</span>
+            <span class="tag">optional purchases (future)</span>
+            <span class="tag">transparent pricing</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="box" style="margin-top:12px;">
+        <h2>Value and trust</h2>
+        <ul>
+          <li>Respect privacy: no collection, no storage, no sharing of user data.</li>
+          <li>Respect time: simple progression and clear mechanics.</li>
+          <li>Support: direct email contact with the developer.</li>
+        </ul>
+
+        <div class="actions">
+          <a class="btn secondary" href="support.html">Contact Support</a>
+          <a class="btn secondary" href="privacy.html">Read Privacy Policy</a>
+          <a class="btn" href="mailto:LubianovMykhailo679@icloud.com?subject=Joker%E2%80%99s%20Crystal%20Rush%20-%20Feedback">Send feedback</a>
+        </div>
+      </div>
+
+      <div class="monoLine">
+        App: Joker’s Crystal Rush · Developer: Mykhailo Lubianov · Contact: LubianovMykhailo679@icloud.com
+      </div>
+    </div>
+  </section>
+</main>
+</body>
+</html>
